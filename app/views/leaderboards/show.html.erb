@@ -8,7 +8,7 @@
 <div>
   <p>Entries:</p>
   <ol>
-    <% @leaderboard.entries.sort_by(&:score).reverse.each do |entry| %>
+    <% @leaderboard.entries.sort_by { |e| e.score or 0 }.reverse.each do |entry| %>
     <li><%= entry.username %> - <%= entry.score %></li>
   <% end -%>
   </ol>
